@@ -1,0 +1,6 @@
+{
+  "name": "aoc2023",
+  "dependencies": {
+    "ramda": "^0.29.1"
+  }
+}
