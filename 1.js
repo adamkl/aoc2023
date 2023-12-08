@@ -43,8 +43,14 @@ What is the sum of all of the calibration values?
 
 const fs = require("fs");
 const R = require("ramda");
-
 const parseFile = (file) => file.split("\n");
+
+const testData = `1abc2
+  pqr3stu8vwx
+  a1b2c3d4e5f
+  treb7uchet`;
+
+const data = fs.readFileSync("./1.txt", "utf8");
 
 const isDigit = (char) =>
   char.charCodeAt(0) >= "0".charCodeAt(0) &&
@@ -97,13 +103,6 @@ const getPairsV2 = (lines) =>
 
 const concatPairs = (pairs) =>
   pairs.map(([first, last]) => parseInt(R.concat(first, last)));
-
-const testData = `1abc2
-  pqr3stu8vwx
-  a1b2c3d4e5f
-  treb7uchet`;
-
-const data = fs.readFileSync("./1.txt", "utf8");
 
 const part1 = R.pipe(parseFile, getPairs, concatPairs, R.sum);
 const part2 = R.pipe(parseFile, getPairsV2, concatPairs, R.sum);
